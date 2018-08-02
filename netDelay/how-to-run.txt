@@ -1,0 +1,40 @@
+I will take care about the experiment. Currently I was using
+mssn6.cse.ohio-state.edu as the udp saturater server. If you also want to ran
+saturation exp, you may need to use another server to avoid possible
+bottleneck. You can find the udp saturater tools under
+mssnOwnCloud/Datahint/tool/.
+
+    For the server side, there are Program_15001 and Program_9998 which are
+already compiled and they use port 15001 and 9998 accordingly. If you want to
+use other port, you may need to modify line 18 in source/main.c. To compile it
+just run:
+
+        make clean
+        make
+
+    Don't forget to check if the port used is allowed for udp traffic.
+
+    To start the server side, just execute the Program file: ./Program
+
+    For the client side, I am not sure if I had installed the udp saturater on
+your Nexus 6P. It not, you may need to copy the Program_udpSaturater into
+/system/bin/ and give it the permission for execution:
+
+        cd owncloud/mssn/Datahint/tool/udpSaturater/client
+        adb push Program_udpSaturater /sdcard/
+        adb shell
+        cd /sdcard/
+        su
+        mount -o remount,rw /system
+	# for Nexus 6P, run $ mount -o rw,remount /system
+        mv Program_udpSaturater /system/bin/
+        chmod a+x /system/bin/Program_udpSaturater
+
+    To run the client program (no need root privilege):
+
+        Usage: Program_udpSaturater <Server IP> <Server Port> <TotalPkt>
+<PktSize> <Interval> <Heart beat interval>
+
+        Both interval unit is microsecond (1e-6 second), we can use <Interval>
+to control the throughput upper bound, and I usually set <Heart beat interval>
+to 1000000 (every 1 second). The PktSize unit is byte.
