@@ -1,0 +1,41 @@
+[
+    {
+        "type"   : "title",
+        "title"  : ""
+    },
+    {
+        "type"   : "numeric",
+        "title"  : "Sample rate",
+        "desc"   : "E.g. 0.2 * 100",
+        "key"    : "sample_rate",
+        "default": "100"
+    },
+    {
+        "type"   : "bool",
+        "title"  : "Sample based on timestamp",
+        "desc"   : "Smaple based on time when enabled",
+        "key"    : "sample_on_time",
+        "default": "0"
+    }, 
+    {
+        "type"   : "bool",
+        "title"  : "Decoder",
+        "desc"   : "whether decode when enabled",
+        "key"    : "is_decode_on",
+        "default": "1"
+    }, 
+    {
+        "type"   : "bool",
+        "title"  : "Analyzer",
+        "desc"   : "whether analyzer is enabled",
+        "key"    : "is_analyzer_on",
+        "default": "1"
+    },
+    {
+        "type"   : "bool",
+        "title"  : "pdcp only",
+        "desc"   : "whether other is enabled",
+        "key"    : "is_other_on",
+        "default": "1"
+    }
+]

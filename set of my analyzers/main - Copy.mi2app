@@ -1,0 +1,54 @@
+#!/usr/bin/python
+
+import os
+import sys
+import shutil
+import traceback
+
+from logging_analyzer import LoggingAnalyzer
+from service import mi2app_utils
+from mobile_insight.monitor import OfflineReplayer, OnlineMonitor
+from ul_mac_latency_analyzer import UlMacLatencyAnalyzer
+# from pkt_loss_analyzer import PktLossAnalyzer
+# from lte_mac_loss_cause_analyzer import LteMacLossCauseAnalyzer
+# from lte_pdcp_gap_analyzer import LtePdcpGapAnalyzer
+from ul_lat_breakdown_analyzer import UlLatBreakdownAnalyzer
+from ul_pdcp_latency_analyzer import UlPDCPAnalyzer
+# from lte_cnt_analyzer import LteCntAnalyzer
+
+def kpi_analysis():
+    # src = OfflineReplayer()
+    # src.set_input_path('/sdcard/mobileinsight/plugins/test_analyzer/vr_log.mi2log')
+    cache_directory = mi2app_utils.get_cache_dir()
+    log_directory = os.path.join(cache_directory, "mi2log")
+
+    src = OnlineMonitor()
+    src.set_log_directory(log_directory)
+    src.set_skip_decoding(True)
+    src.set_log_cut_size(100)
+    # analyzer = LteCntAnalyzer()
+    # analyzer = UlMacLatencyAnalyzer()
+    analyzer = None
+    if(plugin_config["is_other_on"] == '1'):
+        analyzer = UlPDCPAnalyzer()
+    else:
+        analyzer = UlLatBreakdownAnalyzer()
+    analyzer.set_source(src)
+    analyzer.set_sample_rate(float(plugin_config['sample_rate'])/100.0)
+    if plugin_config['sample_on_time'] == '1':
+        analyzer.set_sample_on_time()
+    if plugin_config["is_decode_on"] == '0':
+    	analyzer.set_decode_off()
+    if plugin_config["is_analyzer_on"] == '0':
+    	analyzer.set_analyzer_off()
+    loggingAnalyzer = LoggingAnalyzer(plugin_config)
+    loggingAnalyzer.set_source(src)
+    # analyzer1 = PktLossAnalyzer()
+    # analyzer1.set_source(src)
+    # analyzer2 = LteMacLossCauseAnalyzer()
+    # analyzer2.set_source(src)
+    # analyzer3 = LtePdcpGapAnalyzer()
+    # analyzer3.set_source(src)
+    src.run()
+
+kpi_analysis()
