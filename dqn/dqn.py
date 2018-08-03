@@ -144,6 +144,7 @@ with tf.Session() as sess:
 
         # Online DQN plays
         next_state, reward, done, info = env.step(action)
+        next_state = next_state.reshape((num_analyzer * num_feature, num_time_step))
         returnn += reward
 
         # memorization 

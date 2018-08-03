@@ -13,17 +13,17 @@ verbosity = 1
 # number of steps on each training step
 learn_freq = 4
 # number of training steps between copies of online DQN to target DQN")
-copy_step = 4096
+copy_steps = 4096
 # how many steps to save the model
 save_steps = 10000
 # number of steps of exploration
-explore_steps = 100000
+explore_steps = 300
 
 
 
 # hyperparameter
-learning_rate = 1e-4
-training_start = 10000  # start training after 10,000 game steps
+learning_rate = 1e-3
+training_start = 2
 discount_rate = 0.99
 batch_size = 1
 
