@@ -1,4 +1,7 @@
-#!/usr/bin/python
+'''
+A script that calls ./Program to generate VR-like traffic and get traffic delay
+Author: Kaiyuan(Eric) Chen
+'''
 
 # send packets and create traffic
 def send(pkt_size, ulPktSize = 500, num_pkt = 100, interval = 10000, heart_beat_interval = 10000):
@@ -16,12 +19,13 @@ def send(pkt_size, ulPktSize = 500, num_pkt = 100, interval = 10000, heart_beat_
     args = ' '.join([str(x) for x in [TotalPkt, pkt_size, ulPktSize, interval, heart_beat_interval]])
     import subprocess
     #print('./Program 127.0.0.1 9999 ' + args)
-    p = subprocess.Popen('/media/sf_Projects/vr/VR_REIN/gym_foo/envs/Program 127.0.0.1 9999 ' + args, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+    import os.path
+    path = os.path.abspath(os.path.dirname(__file__)) + "/Program"
+    p = subprocess.Popen(path + ' 127.0.0.1 9999 ' + args, shell=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
     retval = p.wait()
     for line in p.stdout.readlines():
         l.append(line)
     #retval = p.wait()
-    #print(l)
     return process_output(l)
 
 

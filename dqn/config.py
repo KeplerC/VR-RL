@@ -1,3 +1,5 @@
+import os
+
 # in test phase, we don't update learning
 istest = False
 # job name

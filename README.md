@@ -2,11 +2,12 @@
 
 ### Files Included
 vr
-- log: set of logs extracted from ouput of MI analyzers
-- set of analyzers: the analyzer scripts I am using
-- VR_REIN: a pip package for vr gym environment
+- gym-vr: a pip package for VR gym environment
 - dqn: a deep Q-Learn model
 - net-tools: source code for generating ./Program
+- FYI
+  - log: set of logs extracted from ouput of MI analyzers
+  - set of analyzers: the analyzer scripts I am using
 
 ### Usage
 First we need to **install VR training environment** by
