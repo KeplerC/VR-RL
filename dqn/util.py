@@ -2,7 +2,7 @@ import gym
 import numpy as np
 from collections import deque
 from gym import spaces
-from PIL import Image
+#from PIL import Image
 
 
 class NoopResetEnv(gym.Wrapper):
@@ -126,8 +126,8 @@ class WarpFrame(gym.ObservationWrapper):
 
     def _observation(self, obs):
         frame = np.dot(obs.astype('float32'), np.array([0.299, 0.587, 0.114], 'float32'))
-        frame = np.array(Image.fromarray(frame).resize((self.res, self.res),
-            resample=Image.BILINEAR), dtype=np.uint8)
+        #frame = np.array(Image.fromarray(frame).resize((self.res, self.res),
+        #    resample=Image.BILINEAR), dtype=np.uint8)
         return frame.reshape((self.res, self.res, 1))
 
 class FrameStack(gym.Wrapper):

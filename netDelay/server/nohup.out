@@ -1,0 +1,18 @@
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+Listining on Port 9999
+Waiting for incoming UDP message
+Received No.1 heart beat: totalmsg: 419, pktSize: 10000, interval: 10000
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+Listining on Port 9999
+Waiting for incoming UDP message
+Received No.1 heart beat: totalmsg: 419, pktSize: 10000, interval: 10000
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+Listining on Port 9999
+Waiting for incoming UDP message
+Received No.1 heart beat: totalmsg: 419, pktSize: 10000, interval: 10000

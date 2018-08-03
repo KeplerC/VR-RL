@@ -29,9 +29,9 @@ import numpy as np
 import os
 import tensorflow as tf
 import sys
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
+#import matplotlib
+#matplotlib.use('Agg')
+#import matplotlib.pyplot as plt
 import seaborn as sns
 sns.set()
 

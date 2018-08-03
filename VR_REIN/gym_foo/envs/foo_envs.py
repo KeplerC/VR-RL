@@ -181,9 +181,9 @@ class FooEnv(gym.Env):
     # sending the packet specified by pkt_size, 
     # wait until receiving the traffic delay
     delay = vr.send(pkt_size)
-    #delay = pkt_size / 1000
+    delay = pkt_size / 1000
     #TODO: change this
-    return 6000000 - delay
+    return - delay
 
   def _get_masked_lat_by_config(self):
     '''
