@@ -55,6 +55,8 @@ class FooEnv(gym.Env):
     #calculate reward
     #reward = 1000 - abs(self.config["IBR_ANG"] -self.config["PRED_FRAM"])
     reward = self._get_traffic_lat_by_config()
+    if action == 0:
+      reward -= 100000
     print(reward)
     
     #get a new set of observation
@@ -130,7 +132,7 @@ class FooEnv(gym.Env):
     for index, row in a.iterrows():
       ana = int(row["0"])
       time_slot = int(row["1"])
-      ret[ana][time_slot] = row.replace('NaN', 0)
+      ret[ana][time_slot] = row.fillna(0)
 
     ret.swapaxes(1,2)
     return ret
@@ -166,7 +168,7 @@ class FooEnv(gym.Env):
     '''
 
     #A single 1080p frame by a single Youtube frame 
-    frame_size = 44000 #bytes 
+    frame_size = 4400 #bytes 
     '''
     frame size by configuration
     frame size =  frame_size + IBR angle * frame_size / 360
@@ -181,7 +183,7 @@ class FooEnv(gym.Env):
     # sending the packet specified by pkt_size, 
     # wait until receiving the traffic delay
     delay = vr.send(pkt_size)
-    delay = pkt_size / 1000
+    delay = delay / 1000
     #TODO: change this
     return - delay
 
