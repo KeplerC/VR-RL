@@ -4,7 +4,7 @@
 vr
 - gym-vr: a pip package for VR gym environment
 - dqn: a deep Q-Learn model
-- net-tools: source code for generating ./Program
+- netDelay: source code for generating ./Program
 - FYI
   - log: set of logs extracted from ouput of MI analyzers
   - set of analyzers: the analyzer scripts I am using
