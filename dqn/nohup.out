@@ -6980,3 +6980,69 @@ Step 6603/1000000 (0.7)% Training iters 0   Loss   inf    Mean Max-Q 0.000000   
 -5652.777777777777
 -5652.777777777777 {'bound': [], 'PRED_FRAM': 125, 'IBR_ANG': 10}
 Step 6653/1000000 (0.7)% Training iters 0   Loss   inf    Mean Max-Q 0.000000   Return: -30432285.277778
+/usr/lib/python3.5/importlib/_bootstrap.py:222: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  return f(*args, **kwds)
+/usr/lib/python3.5/importlib/_bootstrap.py:222: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  return f(*args, **kwds)
+/usr/lib/python3.5/importlib/_bootstrap.py:222: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  return f(*args, **kwds)
+/usr/lib/python3.5/importlib/_bootstrap.py:222: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  return f(*args, **kwds)
+/usr/lib/python3.5/importlib/_bootstrap.py:222: RuntimeWarning: numpy.dtype size changed, may indicate binary incompatibility. Expected 96, got 88
+  return f(*args, **kwds)
+/usr/local/lib/python3.5/dist-packages/pandas/io/parsers.py:678: UserWarning: Duplicate names specified. This will raise an error in the future.
+  return _read(filepath_or_buffer, kwds)
+/home/chenkaiyuan_g_ucla_edu/VR-RL/VR_REIN/gym_foo/envs/foo_envs.py:117: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  temp_mat['0'] = np.ones((temp_mat.shape[0], 1), dtype=np.int) * i
+/home/chenkaiyuan_g_ucla_edu/VR-RL/VR_REIN/gym_foo/envs/foo_envs.py:118: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  temp_mat['1'] = [roundTime(pd.to_datetime(t), bin_interval) for t in temp_mat['1']]
+/usr/local/lib/python3.5/dist-packages/numpy/core/_methods.py:28: RuntimeWarning: invalid value encountered in reduce
+  return umr_maximum(a, axis, None, out, keepdims, initial)
+-4338.888888888889
+-4400.0
+-4338.888888888889
+-4121.944444444444
+-3905.0
+-3905.0
+-3905.0
+-3688.0555555555557
+-3471.111111111111
+-3688.0555555555557
+-3740.0
+-3520.0
+-3520.0
+-3471.111111111111
+-3254.166666666667
+-3037.2222222222226
+-2820.277777777778
+-2603.3333333333335
+-2640.0
+-2676.6666666666665
+-2640.0
+-2640.0
+-2860.0
+-2820.277777777778
+-2820.277777777778
+-2603.3333333333335
+-2640.0
+-2603.3333333333335
+-2603.3333333333335
+-2820.277777777778
+-3037.2222222222226
+Traceback (most recent call last):
+  File "dqn.py", line 171, in <module>
+    X_state_val, X_action_val, X_rewards_val, X_next_state_val, X_done_val = sample_memories(batch_size)
+  File "/home/chenkaiyuan_g_ucla_edu/VR-RL/VR_REIN/gym_foo/envs/foo_envs.py", line 57, in step
+  File "/home/chenkaiyuan_g_ucla_edu/VR-RL/VR_REIN/gym_foo/envs/foo_envs.py", line 183, in _get_traffic_lat_by_config
+  File "/home/chenkaiyuan_g_ucla_edu/VR-RL/VR_REIN/gym_foo/envs/vr.py", line 25, in send
+  File "/home/chenkaiyuan_g_ucla_edu/VR-RL/VR_REIN/gym_foo/envs/vr.py", line 40, in process_output
+  File "/home/chenkaiyuan_g_ucla_edu/VR-RL/VR_REIN/gym_foo/envs/vr.py", line 40, in <lambda>
+IndexError: list index out of range
