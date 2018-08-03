@@ -1,27 +1,16 @@
-# dqn
-This is a very basic DQN (with experience replay) implementation, which uses OpenAI's gym environment and Keras/Theano neural networks. 
+# Deep Q-Network
+This is a very basic DQN (with experience replay) implementation, which uses OpenAI's gym environment. 
 
-# Requirements
-- gym
-- keras
-- theano
-- numpy
+This is only an implementation of DQN without any knowledge of network/analyzers/etc. Thus, this model can be easily changed to other models that work in gym environment. 
 
-and all their dependencies.
+### Usage
+First, make sure the sample server is running.
+Then run
+```bash
+python3 dqn.py
+```
 
-# Usage
-To run, `python example.py <env_name>`. It runs `MsPacman-v0` if no env is specified.
-Uncomment the `env.render()` line to see the game while training, however, this is likely to make training slow.
+To tune the hyperparameters, please go to comments of ./config.py
 
-Currently, it assumes that the observation is an image, i.e. a 3d array, which is the case for all Atari games, and other Atari-like environments.
-
-# Purpose
-This is meant to be a very simple implementation, to be used as a starter code. I aimed it to be easy-to-comprehend rather than feature-complete.
-
-Pull requests welcome!
-
-# References
+### References
 - https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf
-
-# TODO
-- Extend to other environemnts. Currently only works for Atari and Atari-like environments where the observation space is a 3D Box.
