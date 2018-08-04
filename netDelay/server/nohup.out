@@ -16,3 +16,45 @@ argv[0]: ./Program
 Listining on Port 9999
 Waiting for incoming UDP message
 Received No.1 heart beat: totalmsg: 419, pktSize: 10000, interval: 10000
+listener: bind: Address already in use
+listener: bind: Address already in use
+listener: failed to bind socket
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+Listining on Port 9999
+Waiting for incoming UDP message
+Received No.1 heart beat: totalmsg: 42, pktSize: 10000, interval: 10000
+listener: bind: Address already in use
+listener: bind: Address already in use
+listener: failed to bind socket
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+Listining on Port 9999
+Waiting for incoming UDP message
+Received No.1 heart beat: totalmsg: 42, pktSize: 10000, interval: 10000
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+Listining on Port 9999
+Waiting for incoming UDP message
+Received No.1 heart beat: totalmsg: 42, pktSize: 10000, interval: 10000
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+Listining on Port 9999
+Waiting for incoming UDP message
+Received No.1 heart beat: totalmsg: 5, pktSize: 10000, interval: 10000
+**************************************************************
+argv[0]: ./Program
+**************************************************************
+Listining on Port 9999
+Waiting for incoming UDP message
+Received No.1 heart beat: totalmsg: 5, pktSize: 10000, interval: 10000

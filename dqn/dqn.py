@@ -127,7 +127,6 @@ with tf.Session() as sess:
         training_iter = global_step.eval() 
         if step % 50 == 3: # game over, start again
             print(reward, info)
-            done = True
             if verbosity > 0:
                 print("Step {}/{} ({:.1f})% Training iters {}   "
                       "Loss {:5f}    Mean Max-Q {:5f}   Return: {:5f}".format(
@@ -145,7 +144,7 @@ with tf.Session() as sess:
         # Online DQN plays
         next_state, reward, done, info = env.step(action)
         returnn += reward
-
+        next_state = next_state.reshape((num_analyzer * num_feature, num_time_step))
         # memorization 
         replay_memory.append((state, action, reward, next_state, done))
         state = next_state
@@ -178,7 +177,7 @@ with tf.Session() as sess:
         X_next_state: X_next_state_val})
 
         # Regularly copy the online DQN to the target DQN
-        if step % copy_steps == 0:
+        if step % copy_step == 0:
             copy_online_to_target.run()
 
         # And save regularly

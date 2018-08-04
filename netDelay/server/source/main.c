@@ -94,11 +94,12 @@ int main(int argc, char **argv) {
         }
         else if (FD_ISSET(0, &tempReadfds))
         {
-            fgets(input, 128, stdin);
-            free(input);
-            close(client->sockfd);
-            free(client);
-            return(EXIT_SUCCESS);
+	  //fgets(input, 128, stdin);
+	  //free(input);
+	  //close(client->sockfd);
+	  //free(client);
+	  //return(EXIT_SUCCESS);
+	  printf("output")
         }
         else {
             // coming msg from client

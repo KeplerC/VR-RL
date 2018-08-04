@@ -8,7 +8,7 @@ CFLAGS = -I$(INCDIR)
 LIBS = -lrt
 
 # For example: -std=c99 -std=c++11
-FLAGS = -std=gnu99
+#FLAGS = -std=gnu99
 # FLAGS =
 
 INCDIR = include

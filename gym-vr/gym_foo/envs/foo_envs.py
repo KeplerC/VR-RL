@@ -53,10 +53,9 @@ class FooEnv(gym.Env):
     info["bound"] = self.bound_action
 
     #calculate reward
-    #reward = 1000 - abs(self.config["IBR_ANG"] -self.config["PRED_FRAM"])
     reward = self._get_traffic_lat_by_config()
     if action == 0:
-      reward -= 100000
+      reward -= 100
     print(reward)
     
     #get a new set of observation
@@ -182,8 +181,9 @@ class FooEnv(gym.Env):
 
     # sending the packet specified by pkt_size, 
     # wait until receiving the traffic delay
-    delay = vr.send(pkt_size)
-    delay = delay / 1000
+    #delay = vr.send(pkt_size)
+    #delay = delay / 1000
+    delay = pkt_size / 10000
     #TODO: change this
     return - delay
 
