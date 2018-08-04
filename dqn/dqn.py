@@ -69,6 +69,11 @@ with tf.variable_scope("train"):
     optimizer = tf.train.AdamOptimizer(learning_rate)
     training_op = optimizer.minimize(loss, global_step=global_step)
 
+    #writing everything into tensorboard
+    tf.summary.scalar("loss", loss)
+    tf.summary.histogram("action space", X_action)
+    merged = tf.summary.merge_all()
+    
 # copy the online DQN to the target DQN
 copy_ops = [target_var.assign(online_var)
             for target_var, online_var in zip(target_vars, online_vars)]
@@ -118,6 +123,7 @@ saver = tf.train.Saver()
 state, reward, done, info = env.step(env.action_space.sample())
 
 with tf.Session() as sess:
+    train_writer = tf.summary.FileWriter(path, sess.graph)
     if os.path.isfile(path + ".index"):
         saver.restore(sess, path)
     else:
@@ -169,13 +175,15 @@ with tf.Session() as sess:
         # Sample memories and train the online DQN
         X_state_val, X_action_val, X_rewards_val, X_next_state_val, X_done_val = sample_memories(batch_size)
         
-        _, loss_val = sess.run([training_op, loss],
+        _, loss_val,summary = sess.run([training_op, loss, merged],
         {X_state: X_state_val, 
         X_action: X_action_val, 
         X_rewards: X_rewards_val,
         X_done: X_done_val,
         X_next_state: X_next_state_val})
-
+        
+        train_writer.add_summary(summary, step)
+        
         # Regularly copy the online DQN to the target DQN
         if step % copy_step == 0:
             copy_online_to_target.run()

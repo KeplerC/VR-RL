@@ -23,7 +23,7 @@ explore_steps = 100000
 
 # hyperparameter
 learning_rate = 1e-3
-training_start = 1000  # start training after 10,000 game steps
+training_start = 100  # start training after 10,000 game steps
 discount_rate = 0.99
 batch_size = 1
 
