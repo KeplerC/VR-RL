@@ -11,7 +11,7 @@ num_steps = 10000000
 # 1: print by specific epoch
 verbosity = 1
 # number of steps on each training step
-learn_freq = 4
+learn_freq = 2
 # number of training steps between copies of online DQN to target DQN")
 copy_step = 4096
 # how many steps to save the model
@@ -29,7 +29,7 @@ batch_size = 1
 
 # dimension of input matrices
 num_time_step = 128
-num_analyzer = 2
+num_analyzer = 4 #2 analysers + 2 configurations 
 num_feature = 28
 
 # epsilon-greedy policy with decaying epsilon

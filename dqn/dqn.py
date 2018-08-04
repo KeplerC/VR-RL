@@ -104,6 +104,7 @@ def epsilon_greedy(q_values, step, bound = None):
         return rand_action_within_bound
     else:
         potential_q_values =  np.argmax(q_values) # optimal action
+        print(potential_q_values)
         if potential_q_values in bound:
             return rand_action_within_bound
         else:
@@ -151,6 +152,7 @@ with tf.Session() as sess:
         next_state, reward, done, info = env.step(action)
         returnn += reward
         next_state = next_state.reshape((num_analyzer * num_feature, num_time_step))
+
         # memorization 
         replay_memory.append((state, action, reward, next_state, done))
         state = next_state

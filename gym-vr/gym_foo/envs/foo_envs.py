@@ -74,7 +74,7 @@ class FooEnv(gym.Env):
     }
     return self._get_MI_obser()
 
-  def _get_MI_obser(self, log_dir = "./log/", all_files = False):
+  def _get_MI_obser(self, log_dir = "./log/", all_files = False, include_config = True):
     '''
     Read in MI logs 
     @ret: an observation np matrix 
@@ -134,6 +134,14 @@ class FooEnv(gym.Env):
       ret[ana][time_slot] = row.fillna(0)
 
     ret.swapaxes(1,2)
+
+    # append current configuration to the end
+    if not include_config:
+      return ret
+
+    configs = [np.ones((1,num_time_slots, num_feat)) * value for config, value in self.config.items()]
+    configs.append(ret)
+    ret = np.concatenate(configs)
     return ret
     #return np.ones((feat_size, step_size)) * (self.config["IBR_ANG"] -self.config["PRED_FRAM"])
 
