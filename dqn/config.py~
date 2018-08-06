@@ -1,10 +1,6 @@
-
-# Path variables 
 ENV_NAME = 'VR'  # Environment name
-SAVE_NETWORK_PATH = 'saved_networks/' + ENV_NAME
-SAVE_SUMMARY_PATH = 'summary/' + ENV_NAME
-
-# Training specific 
+#FRAME_WIDTH = 84  # Resized frame width
+#FRAME_HEIGHT = 84  # Resized frame height
 NUM_EPISODES = 12000  # Number of episodes the agent plays
 STATE_LENGTH = 1  # Number of most recent frames to produce the input to the network
 GAMMA = 0.99  # Discount factor
@@ -23,9 +19,6 @@ SAVE_INTERVAL = 3000  # The frequency with which the network is saved
 NO_OP_STEPS = 1  # Maximum number of "do nothing" actions to be performed by the agent at the start of an episode
 LOAD_NETWORK = False
 TRAIN = True
+SAVE_NETWORK_PATH = 'saved_networks/' + ENV_NAME
+SAVE_SUMMARY_PATH = 'summary/' + ENV_NAME
 NUM_EPISODES_AT_TEST = 30  # Number of episodes the agent plays at test time
-
-#input specific
-NUM_ANALYZER = 4
-NUM_FEATURE = 28
-NUM_TIME_STAMP = 128
