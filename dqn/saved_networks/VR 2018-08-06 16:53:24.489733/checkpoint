@@ -1,0 +1,6 @@
+model_checkpoint_path: "VR-33000"
+all_model_checkpoint_paths: "VR-21000"
+all_model_checkpoint_paths: "VR-24000"
+all_model_checkpoint_paths: "VR-27000"
+all_model_checkpoint_paths: "VR-30000"
+all_model_checkpoint_paths: "VR-33000"

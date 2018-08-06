@@ -1,8 +1,10 @@
 
 # Path variables 
 ENV_NAME = 'VR'  # Environment name
-SAVE_NETWORK_PATH = 'saved_networks/' + ENV_NAME
-SAVE_SUMMARY_PATH = 'summary/' + ENV_NAME
+import datetime
+ts = str(datetime.datetime.now())
+SAVE_NETWORK_PATH = 'saved_networks/' + ENV_NAME + " " + ts
+SAVE_SUMMARY_PATH = 'summary/' + ENV_NAME + " " + ts
 
 # Training specific 
 NUM_EPISODES = 12000  # Number of episodes the agent plays

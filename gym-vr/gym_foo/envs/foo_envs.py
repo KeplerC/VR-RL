@@ -55,10 +55,10 @@ class FooEnv(gym.Env):
     info["bound"] = self.bound_action
 
     #calculate reward
-    delay = self._get_traffic_lat_by_config() - self._get_masked_lat_by_config()
+    delay = self._get_traffic_lat_by_config()# - self._get_masked_lat_by_config()
     print(delay, info)
 
-    reward = self.last_reward - delay
+    reward = - delay
     
     #get a new set of observation
     #by calling MI
@@ -258,5 +258,5 @@ detailed on each property can be seen on comment
 '''
 ACTION_BD_TAB = {
     "IBR_ANG": (-10, 270), #Image based rendering has 80 ~ 360 degree of rendering
-    "PRED_FRAM" :(1, 1000)  
+    "PRED_FRAM" :(0, 1000)  
 }

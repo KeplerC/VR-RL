@@ -236,9 +236,9 @@ class Agent():
         checkpoint = tf.train.get_checkpoint_state(SAVE_NETWORK_PATH)
         if checkpoint and checkpoint.model_checkpoint_path:
             self.saver.restore(self.sess, checkpoint.model_checkpoint_path)
-            print('Successfully loaded: ' + checkpoint.model_checkpoint_path)
+            print('=========Successfully loaded: ===========' + checkpoint.model_checkpoint_path)
         else:
-            print('Training new network...')
+            print('=========Training new network...=========')
 
     def get_action_at_test(self, state):
         if random.random() <= 0.05:
