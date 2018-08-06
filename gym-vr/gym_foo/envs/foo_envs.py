@@ -23,12 +23,13 @@ class FooEnv(gym.Env):
   def __init__(self):
     self.action_space = spaces.Discrete(5)
     self.config = {
-      "IBR_ANG": 0, #real frame + 90
+      "IBR_ANG": 0,
       "PRED_FRAM": 100
     }
     self.bound_action = []
-
-  def step(self, action):
+    self.last_reward = 0
+    
+  def step(self, action, isrewarddifference = True):
     '''
     observation, reward, done, info = env.step(action)
     @para
@@ -39,6 +40,7 @@ class FooEnv(gym.Env):
     reward: latency reduced + latency masked 
     done: given characteristic of this problem, we don't need to reset it 
     info: all the configurations 
+    isrewarddifference: reward is difference from last time
     '''
     
     assert self.action_space.contains(action)
@@ -53,10 +55,10 @@ class FooEnv(gym.Env):
     info["bound"] = self.bound_action
 
     #calculate reward
-    reward = self._get_traffic_lat_by_config()
-    if action == 0:
-      reward -= 100
-    print(reward)
+    delay = self._get_traffic_lat_by_config() - self._get_masked_lat_by_config()
+    print(delay, info)
+
+    reward = self.last_reward - delay
     
     #get a new set of observation
     #by calling MI
@@ -191,9 +193,9 @@ class FooEnv(gym.Env):
     # wait until receiving the traffic delay
     #delay = vr.send(pkt_size)
     #delay = delay / 1000
-    delay = pkt_size / 10000
+    delay = pkt_size / 500
     #TODO: change this
-    return - delay
+    return delay
 
   def _get_masked_lat_by_config(self):
     '''
